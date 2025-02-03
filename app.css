@@ -1,0 +1,94 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #121212;
+  --card-bg: #f8f9fa;
+  --table-bg: #ffffff;
+  --table-striped-bg: #f8f9fa;
+  --table-hover-bg: #e9ecef;
+  --th-bg: #e9ecef;
+}
+
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f1f1f1;
+  --card-bg: #1e1e1e;
+  --table-bg: #1e1e1e;
+  --table-striped-bg: #2c2c2c;
+  --table-hover-bg: #3a3a3a;
+  --th-bg: #333;
+}
+
+.dark-mode h1,
+.dark-mode h2 {
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.card,
+.table,
+tr {
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.card {
+  background-color: var(--card-bg);
+}
+
+.table {
+  background-color: var(--table-bg);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--table-striped-bg);
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+th {
+  background-color: var(--th-bg);
+  position: relative;
+}
+
+th:not(:last-child)::after {
+  content: "↑↓";
+  font-size: 0.8em;
+  margin-left: 0.5em;
+  opacity: 0.5;
+  display: inline-block;
+  width: 1.2em;
+  text-align: center;
+}
+
+th[data-sorted="asc"]:not(:last-child)::after {
+  content: "↑";
+  opacity: 1;
+}
+
+th[data-sorted="desc"]:not(:last-child)::after {
+  content: "↓";
+  opacity: 1;
+}
+
+.btn-danger {
+  padding: 0.25rem 0.5rem;
+}
+
+tr.removing {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+@media (max-width: 576px) {
+  #entryForm .form-control,
+  .btn-sm {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
